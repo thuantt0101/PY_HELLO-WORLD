@@ -35,7 +35,7 @@
 # -------------------------------
 #### Map
 
-# exercise
+# exercises
 from functools import reduce 
 
 my_floats = [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59]
