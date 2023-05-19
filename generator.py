@@ -6,16 +6,17 @@
 
 
 # 2-generator
-# def fancy_generator():
-#     my_list = [1, 2, 3]
-#     for i in my_list:
-#         yield i * 2
+def fancy_generator():
+    my_list = [1, 2, 3]
+    for i in my_list:
+        yield i * 2
 
-# mygen = fancy_generator() 
-# # print(mygen) # <generator object fancy_generator at 0x000001EBDE9E9D60>
-# for x in fancy_generator():
-#     print(x) # 2, 4, 6
+mygen = fancy_generator() 
+print(mygen) # <generator object fancy_generator at 0x000001EBDE9E9D60>
+for x in fancy_generator():
+    print(x) # 2, 4, 6
 
+# 1 1 2 3 5 ...
 # 3-fibonacy
 def fib():
     a, b = 1, 1
@@ -24,13 +25,13 @@ def fib():
         a, b = b, a + b
 
 # testing code
-import types
-if type(fib()) == types.GeneratorType:
-    print("Good, The fib function is a generator.")
+# import types
+# if type(fib()) == types.GeneratorType:
+#     print("Good, The fib function is a generator.")
 
-    counter = 0
-    for n in fib():
-        print(n)
-        counter +=1
-        if counter ==10:
-            break
+#     counter = 0
+#     for n in fib():
+#         print(n)
+#         counter +=1
+#         if counter ==10:
+#             break

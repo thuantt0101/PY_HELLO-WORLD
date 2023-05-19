@@ -23,3 +23,10 @@ l = [2,4,7,3,14,19]
 for i in l:
     lambda_func = lambda x : (x%2)==1
     print(lambda_func(i))
+
+
+print('----------------------last one-------------------------------')
+l  = [1, 2]
+lam = (lambda x: str(x), l)
+print(lam)
+

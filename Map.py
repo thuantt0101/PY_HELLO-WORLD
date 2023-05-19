@@ -71,7 +71,23 @@
 # print(result)
 # ----------------------------------------------
 
-circle_areas = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013]
-result = list(map(round, circle_areas, range(1, 999))) 
-print(result) # [3.6, 5.58, 4.009, 56.2424, 9.01344, 32.00013]
+# circle_areas = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013]
+# result = list(map(round, circle_areas, range(1, 999))) 
+# print(result) # [3.6, 5.58, 4.009, 56.2424, 9.01344, 32.00013]
 
+
+
+x1s = [5, 10, 20, 35]
+x2s = [15, 20, 30, 55]
+y1s = [5, 10, 10, 15]
+y2s = [15, 20, 20, 35]
+
+
+def _bbox(x1, x2, y1, y2):
+  w = x2-x1
+  h = y2-y1
+  area = w*h
+  return area
+
+results = list(map(_bbox, x1s, x2s, y1s, y2s))
+print(results) # [100, 100, 100, 400]

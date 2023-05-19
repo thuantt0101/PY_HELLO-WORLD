@@ -4,7 +4,6 @@
 # method hay class một cách dynamic, mà không phải sử dụng subclass. Nó rất tiện lợi khi bạn muốn mở rộng 
 # tính năng của một function mà bạn không muốn thay đổi nó. Chúng ta có thể implement decorator pattern bất nơi nào,
 #  nhưng Python tạo điều kiện cho việc đó bằng cách cung cấp nhưng tính năng và cú pháp vô cùng tiện ích.
-
 # Mọi thứ trong Python đều là object
 
 # def a_new_decorator(a_func):
@@ -21,11 +20,9 @@
 # def a_function_requiring_decoration():
 #     print("I am the function which needs some decoration to remove my foul smell")
 
-# a_function_requiring_decoration()
-# #outputs: "I am the function which needs some decoration to remove my foul smell"
 
 # a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
-# #a_function_requiring_decoration được wrap bởi wrapTheFunction
+#a_function_requiring_decoration được wrap bởi wrapTheFunction
 
 # a_function_requiring_decoration()
 # #outputs:I am doing some boring work before executing a_func()
@@ -59,20 +56,19 @@
 
 # x = deco_func(show_text)
 # print(x('ersvn'))
-# end example 1---------------------------------------
 
 # example 2
 # ---------------------------------------
-# def deco_func(func):
-#     def wrapper(info):
-#         return 'Item add to func: {}'.format(func(info))
-#     return wrapper
+def deco_func(func):
+    def wrapper(info):
+        return 'Item add to func: {}'.format(func(info))
+    return wrapper
 
-# @deco_func
-# def show_text(info):
-#     return 'This is a first infomation: {}'.format(info)
+@deco_func
+def show_text(info):
+    return 'This is a first infomation: {}'.format(info)
 
-# print(show_text('ersvn'))
+print(show_text('ersvn'))
 # end ---------------------------------------
 
 # example 3
@@ -92,23 +88,33 @@ def type_check(correct_type):
         return new_function
     return check
 
-x = type_check(int)
-print(help(x)) # check(old_function)
+# x = type_check(int)
+# print(help(x)) # check(old_function)
 
+# def times2(num):
+#     return num*2
+
+# y = x(times2)
+# print(help(y))
+
+# z = y(2)
+# print(type(z))
+# print(z)
+
+# This is equivalent bellow
+@type_check(int) 
 def times2(num):
     return num*2
 
-y = x(times2)
-print(help(y))
+print(times2('abc'))
 
-z = y(2)
-print(type(z))
-print(z)
+'''
+    giai thich :
+    python se goi decorator function va truyen vao theo thu tu nhu sau int >> function( arg )
+    neu parse theo thu tu se la int>>function>>arg
 
-# This is equivalent bellow
-# @type_check(int) 
-# def times2(num):
-#     return num*2
+'''
+
 
 # x = type_check(times2)
 # print(x(2))
